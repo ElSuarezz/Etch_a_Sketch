@@ -1,15 +1,27 @@
-const container = document.querySelector(".grid");
-let rows = 17
-let columns = 16
+const container = document.querySelector(".container");
 
 
-for(i=0; i<rows; i++){
-    for(j=0;j<columns;j++){
+function makeGrid(size){
+    
+    for(i=0; i<(size*size); i++){
         const gridItem = document.createElement("div")
-        gridItem.classList.add ("row")
+        gridItem.classList.add ("box")
         container.appendChild(gridItem);
+        gridItem.addEventListener('mouseover', changeColor)
+        gridItem.addEventListener('mouseout', eraseColor)
     }     
 }
 
+makeGrid(16);
 
 
+function changeColor(e) {
+    e.currentTarget.style.backgroundColor = 'aquamarine';
+}
+
+function eraseColor(e) {
+    setTimeout(() => {
+        e.target.style.backgroundColor = 'white';
+        
+    }, 3000);
+}
