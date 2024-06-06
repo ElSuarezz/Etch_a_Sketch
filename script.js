@@ -21,7 +21,7 @@ makeGrid(16);
 
 
 function changeColor(e) {
-    e.currentTarget.style.backgroundColor = 'aquamarine';
+    e.currentTarget.style.backgroundColor = 'rgb(7, 235, 37)';
 }
 
 function eraseColor(e) {
