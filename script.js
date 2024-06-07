@@ -21,7 +21,13 @@ makeGrid(16);
 
 
 function changeColor(e) {
-    e.currentTarget.style.backgroundColor = 'rgb(7, 235, 37)';
+    const randomBetween = (min, max) => min + Math.floor(Math.random () * (max - min +1));
+    const r = randomBetween(0 ,255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgb = `rgb(${r},${g},${b})`;
+    
+    e.currentTarget.style.backgroundColor = rgb
 }
 
 function eraseColor(e) {
@@ -37,6 +43,9 @@ function customGrid() {
 
     if(gridSize < 1 || gridSize >100){
         alert('You must choose between 1 and 100.')
+
+    }else if (input === null){
+        makeGrid(16)    
     
     }else {
         makeGrid(gridSize);
